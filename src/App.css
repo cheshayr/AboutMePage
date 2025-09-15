@@ -1,38 +1,183 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0b1b3a; 
+  color: #f1c40f; 
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 1rem 2rem;
+  background: #08142d;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo img {
+  height: 45px;
+}
+
+.navbar nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #f1c40f;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 6rem 2rem;
+  background-size: cover;
+  background-position: center;
+  color: #f1c40f;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero-text {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 10px;
 }
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  margin-top: 0.5rem;
+  color: #f9e79f;
+}
+
+.hero-text .quote {
+  margin-top: 1rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.services {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #0b1b3a;
+  color: #f1c40f;
+}
+
+.services h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.slide {
+  max-width: 600px;
+  text-align: center;
+}
+
+.slide img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.slide h3 {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #f1c40f;
+  cursor: pointer;
+  padding: 0 1rem;
+  transition: color 0.3s ease;
+}
+
+.arrow:hover {
+  color: white;
+}
+
+.promo {
+  background: white;
+  padding: 4rem 2rem;
+}
+
+.promo-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.promo-img img {
+  width: 280px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+.promo-text {
+  max-width: 500px;
+  color: #0b1b3a; 
+}
+
+.promo-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.promo-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.download-btn {
+  background: #0b1b3a;
+  color: #f1c40f;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #08142d;
+  color: white;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #08142d;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
