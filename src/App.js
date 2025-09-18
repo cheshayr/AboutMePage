@@ -300,7 +300,7 @@ function App() {
 
       {/* Floating Facebook Button */}
       <a
-        href="https://facebook.com"
+        href="https://www.facebook.com/tierodmanautocenter"
         target="_blank"
         rel="noreferrer"
         className="floating-fb"
