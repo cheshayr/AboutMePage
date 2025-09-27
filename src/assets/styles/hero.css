@@ -1,0 +1,33 @@
+.hero {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #f1c40f;
+  }
+  
+  .hero-text {
+    max-width: 900px;
+    padding: 2rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  
+  .hero-text p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  
+  .hero-text .quote {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #f1c40f;
+  }
+  

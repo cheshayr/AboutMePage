@@ -1,0 +1,29 @@
+.why {
+    background: #f1f4f9;
+    text-align: center;
+  }
+  
+  .why-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .why .card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .why .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #f1c40f;
+  }
+  

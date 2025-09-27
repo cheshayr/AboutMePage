@@ -1,0 +1,12 @@
+.about {
+    background: #f8f9fa;
+    color: #0b1b3a;
+    text-align: center;
+  }
+  
+  .about p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.1rem;
+  }
+  

@@ -1,0 +1,39 @@
+.promo {
+    background: #f8f9fa;
+    padding: 4rem 2rem;
+  }
+  
+  .promo-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .promo-img img {
+    max-width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  
+  .promo-text {
+    max-width: 500px;
+    text-align: left;
+  }
+  
+  .download-btn {
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: #f1c40f;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .download-btn:hover {
+    background: #d4ac0d;
+  }
+  
