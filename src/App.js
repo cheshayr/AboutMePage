@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  FaTools,
-  FaBolt,
-  FaDollarSign,
-  FaCogs,
-  FaCalendarAlt,
-  FaBell,
-  FaWrench,
-  FaQuoteLeft,
-  FaFacebookF,
-} from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ✅ Import separated CSS files
@@ -18,10 +8,7 @@ import "./assets/styles/navbar.css";
 import "./assets/styles/hero.css";
 import "./assets/styles/about.css";
 import "./assets/styles/services.css";
-import "./assets/styles/why.css";
-import "./assets/styles/features.css";
 import "./assets/styles/promo.css";
-import "./assets/styles/testimonials.css";
 import "./assets/styles/footer.css";
 
 import tierodLogo from "./tierod-logo.png";
@@ -31,6 +18,7 @@ import tierodShop from "./tierod-shop.png";
 import app1 from "./assets/advertisement/ad1.png";
 import app2 from "./assets/advertisement/ad2.png";
 import app3 from "./assets/advertisement/ad3.png";
+import aboutImage from "./assets/advertisement/ad4.png"; // ✅ IMPORT image
 
 const services = [
   {
@@ -56,6 +44,7 @@ const promoImages = [app1, app2, app3];
 function App() {
   const [current, setCurrent] = useState(0);
   const [promoIndex, setPromoIndex] = useState(0);
+  const [expanded, setExpanded] = useState(false); // ✅ Expand state
 
   // Auto-slide promo images
   useEffect(() => {
@@ -65,25 +54,22 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  // Auto-slide services
+  // Auto-slide services (only when not expanded)
   useEffect(() => {
+    if (expanded) return;
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % services.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [expanded]);
 
   return (
     <div className="App font-poppins">
       {/* Navbar */}
       <header className="navbar">
-        <div className="logo">
-          <img src={tierodLogo} alt="Tierodman Logo" className="logo-img" />
-        </div>
         <nav>
           <a href="#about">About</a>
           <a href="#services">Services</a>
-          <a href="#features">Features</a>
           <a href="#promo">App</a>
         </nav>
       </header>
@@ -91,47 +77,59 @@ function App() {
       {/* Hero Section */}
       <motion.section
         className="hero"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(11,27,58,0.4), rgba(11,27,58,0.85)), url(${tierodShop})`,
-        }}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        style={{ backgroundImage: `url(${tierodShop})` }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
       >
-        <motion.div
-          className="hero-text"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-        >
-          <h1>Welcome to Tierodman Auto Center</h1>
-          <p>
-            Your trusted partner for automotive repair, maintenance, and quality
-            parts. We bring speed, expertise, and affordability to every car
-            service.
-          </p>
-          <p className="quote">
-            “Superior quality service at an affordable price.”
-          </p>
-        </motion.div>
+        <div className="hero-content">
+          {/* Logo on the left */}
+          <motion.img
+            src={tierodLogo}
+            alt="Tierodman Logo"
+            className="hero-logo"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.3 }}
+          />
+
+          {/* Text on the right */}
+          <motion.div
+            className="hero-text"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, delay: 0.5 }}
+          >
+            <h1>AutoMate</h1>
+            <p>
+              Your trusted partner for automotive repair, maintenance, and quality
+              parts. We bring speed, expertise, and affordability to every car
+              service.
+            </p>
+            <p className="quote">“Superior quality service at an affordable price.”</p>
+          </motion.div>
+        </div>
       </motion.section>
 
       {/* About Section */}
       <motion.section
         className="about"
         id="about"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
       >
-        <h2>About Us</h2>
-        <p>
-          At Tierodman Auto Center, we pride ourselves on delivering expert
-          automotive repair and maintenance. With years of experience and a
-          dedicated team of mechanics, we ensure your vehicle gets the best
-          treatment possible.
-        </p>
+        <img src={aboutImage} alt="About Tierodman Auto Center" />
+        <div className="about-text">
+          <h2>About Us</h2>
+          <p>
+            At <strong>Tierodman Auto Center</strong>, we pride ourselves on delivering
+            expert automotive repair and maintenance. With years of experience and
+            a dedicated team of mechanics, we ensure your vehicle gets the best
+            treatment possible.
+          </p>
+        </div>
       </motion.section>
 
       {/* Services Section */}
@@ -144,74 +142,92 @@ function App() {
         viewport={{ once: true }}
       >
         <h2>Our Services</h2>
+
         <div className="slider">
           <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              className="slide service-card"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.6 }}
-            >
-              <img
-                src={services[current].img}
-                alt={services[current].title}
-              />
-              <h3>{services[current].title}</h3>
-            </motion.div>
+            {expanded ? (
+              // ✅ Expanded view showing all services
+              <motion.div
+                className="expanded-services"
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                {/* Close button */}
+                <motion.button
+                  className="close-btn"
+                  onClick={() => setExpanded(false)}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  ✕
+                </motion.button>
+
+                <div className="services-grid">
+                  {services.map((service) => (
+                    <motion.div
+                      key={service.title}
+                      className="service-card expanded"
+                      layout
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <motion.img
+                        src={service.img}
+                        alt={service.title}
+                        layout="responsive"
+                        initial={{ scale: 1.2 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                      />
+                      <motion.h3>{service.title}</motion.h3>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ) : (
+              // ✅ Single slider card
+              <motion.div
+                key={current}
+                className="slide service-card"
+                layout
+                initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.8, y: -50 }}
+                transition={{ duration: 0.6 }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0px 12px 30px rgba(0, 0, 0, 0.25)",
+                }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <motion.img
+                  src={services[current].img}
+                  alt={services[current].title}
+                  initial={{ scale: 1.2 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                />
+                <motion.h3>{services[current].title}</motion.h3>
+
+                {/* ✅ New "See All" button */}
+                <motion.button
+                  className="see-all-btn"
+                  onClick={() => setExpanded(true)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  See All Services
+                </motion.button>
+              </motion.div>
+            )}
           </AnimatePresence>
         </div>
       </motion.section>
 
-      {/* Why Choose Us */}
-      <motion.section
-        className="why"
-        id="why"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
-        <h2>Why Choose Tierodman?</h2>
-        <div className="why-cards">
-          <motion.div className="card" whileHover={{ scale: 1.05 }}>
-            <FaTools className="icon" /> Trusted Mechanics
-          </motion.div>
-          <motion.div className="card" whileHover={{ scale: 1.05 }}>
-            <FaBolt className="icon" /> Fast & Reliable Service
-          </motion.div>
-          <motion.div className="card" whileHover={{ scale: 1.05 }}>
-            <FaDollarSign className="icon" /> Affordable Pricing
-          </motion.div>
-          <motion.div className="card" whileHover={{ scale: 1.05 }}>
-            <FaCogs className="icon" /> Quality Parts
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Features */}
-      <motion.section
-        className="features"
-        id="features"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
-        <h2>App Features</h2>
-        <ul className="feature-list">
-          <li>
-            <FaCalendarAlt className="icon" /> Easy service booking
-          </li>
-          <li>
-            <FaBell className="icon" /> Appointment reminders
-          </li>
-          <li>
-            <FaWrench className="icon" /> Track repair progress
-          </li>
-        </ul>
-      </motion.section>
 
       {/* Promo Section */}
       <motion.section
@@ -238,6 +254,7 @@ function App() {
               />
             </motion.div>
           </AnimatePresence>
+
           <motion.div
             className="promo-text"
             initial={{ opacity: 0, y: 30 }}
@@ -246,53 +263,36 @@ function App() {
           >
             <h2>Download Our App</h2>
             <p>
-              Book services, track repairs, and manage your appointments right
-              from your phone. Experience convenience with Tierodman Auto
-              Center.
+              Book services, track repairs, and manage your appointments right from
+              your phone. Experience convenience with{" "}
+              <strong>Tierodman Auto Center</strong>.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              className="download-btn"
-            >
-              Download Now
+
+            {/* Single Download Button */}
+            <motion.button whileHover={{ scale: 1.05 }} className="download-btn">
+              <i className="fab fa-google-play"></i> Download on Google Play
             </motion.button>
           </motion.div>
         </div>
       </motion.section>
 
-      {/* Reviews */}
-      <motion.section
-        className="testimonials"
-        id="reviews"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
-        <h2>Customer Reviews</h2>
-        <div className="testimonial-cards">
-          <motion.div className="card" whileHover={{ scale: 1.05 }}>
-            <FaQuoteLeft className="quote-icon" />
-            “Fast and reliable! My car feels brand new.”
-          </motion.div>
-          <motion.div className="card" whileHover={{ scale: 1.05 }}>
-            <FaQuoteLeft className="quote-icon" />
-            “Affordable prices and great service!”
-          </motion.div>
-          <motion.div className="card" whileHover={{ scale: 1.05 }}>
-            <FaQuoteLeft className="quote-icon" />
-            “Booking with the app is so convenient.”
-          </motion.div>
-        </div>
-      </motion.section>
 
-      {/* Footer */}
+     {/* Footer */}
       <footer className="footer" id="contact">
-        <p>
-          © {new Date().getFullYear()} Tierodman Auto Center | All Rights
-          Reserved
-        </p>
+        <div className="footer-content">
+          <h3>Tierodman Auto Center</h3>
+          <p>Expert automotive repair & maintenance, trusted for years.</p>
+          <div className="footer-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <p className="footer-copy">
+            © {new Date().getFullYear()} Tierodman Auto Center | All Rights Reserved
+          </p>
+        </div>
       </footer>
+
 
       {/* Floating FB */}
       <a

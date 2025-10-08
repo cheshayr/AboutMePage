@@ -1,33 +1,112 @@
 .services {
-    background: #fff;
-    color: #0b1b3a;
-  }
-  
-  .slider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-  }
-  
-  .service-card {
-    max-width: 400px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    text-align: center;
-    background: white;
-  }
-  
-  .service-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-  }
-  
-  .service-card h3 {
-    padding: 1rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-  
+  background: linear-gradient(135deg, #0b1b3a, #1e3c72); /* dark gradient */
+  color: white;
+  padding: 6rem 2rem; /* expand spacing */
+  text-align: center;
+  min-height: 100vh; /* expand section to full viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.services h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #f1c40f; /* gold accent */
+  letter-spacing: 1px;
+  text-transform: none; /* keep natural case */
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  perspective: 1200px;
+}
+
+/* Service card (slider + grid) */
+.service-card {
+  width: 100%;
+  max-width: 400px; /* control card size */
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  color: #0b1b3a;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.service-card img {
+  width: 100%;
+  height: 250px; /* balanced height */
+  object-fit: cover;
+}
+
+.service-card h3 {
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+/* Expanded grid wrapper */
+.expanded-services {
+  position: relative;
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+/* Grid layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem; /* spacing between cards */
+  justify-items: center; /* center each card */
+  margin-top: 2rem;
+}
+
+/* Expanded cards */
+.service-card.expanded {
+  max-width: 320px; /* smaller than slider card */
+  height: auto;
+}
+
+/* Minimal close button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: #f1c40f;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+.see-all-btn {
+  margin: 1rem auto 1.5rem;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 25px;
+  background: #f1c40f;
+  color: #0b1b3a;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: block;
+}
+
+.see-all-btn:hover {
+  background: #ffda4d;
+  transform: translateY(-2px);
+}

@@ -1,24 +1,69 @@
 .footer {
-    background: #0b1b3a;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  .floating-fb {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #1877f2;
-    color: white;
-    padding: 12px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    transition: background 0.3s;
-  }
-  
-  .floating-fb:hover {
-    background: #145dbf;
-  }
-  
+  background: linear-gradient(135deg, #0b1b3a, #1e3c72);
+  color: white;
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: #f1c40f; /* gold accent */
+}
+
+.footer-content p {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+}
+
+.footer-links {
+  margin: 1rem 0 1.5rem;
+}
+
+.footer-links a {
+  color: #f1c40f;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffda4d;
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1rem;
+}
+
+/* Floating Facebook button */
+.floating-fb {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1877f2; /* FB blue */
+  color: white;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%; /* makes it a circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px; /* icon size */
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, background 0.3s;
+  z-index: 2000;
+}
+
+.floating-fb:hover {
+  background: #145dbf; /* darker FB blue */
+  transform: scale(1.1);
+}
