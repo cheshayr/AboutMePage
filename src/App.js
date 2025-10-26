@@ -18,7 +18,7 @@ import tierodShop from "./tierod-shop.png";
 import app1 from "./assets/advertisement/ad1.png";
 import app2 from "./assets/advertisement/ad2.png";
 import app3 from "./assets/advertisement/ad3.png";
-import aboutImage from "./assets/advertisement/ad4.png"; // ✅ IMPORT image
+import aboutImage from "./assets/advertisement/ad4.png"; 
 
 const services = [
   {
