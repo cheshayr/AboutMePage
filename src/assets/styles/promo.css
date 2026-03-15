@@ -3,7 +3,8 @@
   color: white;
   padding: 4rem 2rem;   /* reduced padding to tighten spacing */
   text-align: center;
-  margin: 0;            /* ensure no outside spacing */
+  margin: 0;   
+  min-height: 100vh;          /* ensure no outside spacing */
 }
 
 .promo-content {

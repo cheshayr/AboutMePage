@@ -1,6 +1,7 @@
 .why {
     background: #f1f4f9;
     text-align: center;
+    min-height: 100vh;
   }
   
   .why-cards {

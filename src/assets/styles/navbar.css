@@ -1,31 +1,44 @@
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(11, 27, 58, 0.95);
-    backdrop-filter: blur(8px); /* nice glass effect */
-    color: white;
-    display: flex;
-    justify-content: center; /* center nav links since no logo */
-    align-items: center;
-    padding: 1rem 2rem;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(11, 27, 58, 0.95);
+  backdrop-filter: blur(8px);
+  color: white;
+  display: flex;
   
-  .navbar nav {
-    display: flex;
-    gap: 2rem;
-  }
+  /* ⚡️ This pushes logo left and nav right ⚡️ */
+  justify-content: space-between; 
   
-  .navbar nav a {
-    position: relative;
-    color: #f1c40f;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-  }
+  align-items: center;
+  /* Added left/right padding so logo and nav don't touch the screen edges */
+  padding: 0.5rem 4rem; 
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ⚡️ Logo Sizing ⚡️ */
+.navbar-logo img {
+  height: 50px; /* Adjust this height to fit your preference */
+  width: auto;  /* Keeps the logo from stretching */
+  display: block;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar nav a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* ... rest of your hover effects stay the same ... */
   
   .navbar nav a:hover {
     color: #fff;
