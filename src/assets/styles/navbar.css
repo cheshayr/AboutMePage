@@ -5,8 +5,14 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(11, 27, 58, 0.95);
-  backdrop-filter: blur(8px);
+  
+  /* 1. Change background to solid white (or #0b1b3a for navy) */
+  background: #ffffff; 
+  
+  /* 2. Remove the blur effect */
+  backdrop-filter: none; 
+  
+  /* Keep the rest as is */
   color: white;
   display: flex;
   text-decoration: none;
@@ -14,9 +20,7 @@
   align-items: center;
   padding: 0.5rem 4rem; 
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  
-  /* Apply Poppins to the whole navbar */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: softened the shadow for a cleaner look */
   font-family: 'Poppins', sans-serif;
 }
 
@@ -78,7 +82,7 @@
 /* Base styles for standard links */
 .navbar nav a {
   position: relative;
-  color: #ffffff;
+  color: #0b1b3a;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   font-weight: 600; 
