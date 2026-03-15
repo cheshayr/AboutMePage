@@ -1,19 +1,19 @@
 {
   "short_name": "AutoMate",
-  "name": "Create React App Sample",
+  "name": "AutoMate | Tierodman Auto Center",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "FinalLogo.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "/assets/Logo/FinalLogo.png",
+      "src": "FinalLogo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/assets/Logo/FinalLogo.png",
+      "src": "FinalLogo.png",
       "type": "image/png",
       "sizes": "512x512"
     }

@@ -1,141 +1,105 @@
-/* Update `src/assets/styles/hero.css` with this minimal style */
-
+/* 1. THE STAGE: Setting up the background and centering */
 .hero {
-  text-align: center;
-  padding: 8rem 2rem; /* Increased vertical padding for more white space */
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;    /* Vertical center */
+  justify-content: left; /* Horizontal center */
+  text-align: left;
   background-size: cover;
   background-position: center;
-  min-height: 100vh; /* Make the hero take up more screen real estate */
-  display: flex;
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
-  position: relative; /* Essential for overlay */
+  overflow: hidden;       /* Prevents accidental scrollbars from huge text */
 }
 
-/* Add a dark overlay to make centered text pop and be readable over the image */
+/* 2. THE OVERLAY: Making text readable */
 .hero::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(11, 27, 58, 0.75); /* Dark blue, good contrast, safe readability */
-  z-index: 1; /* Place above the image */
+  inset: 0; /* Shortcut for top, left, bottom, right: 0 */
+  background-color: rgba(11, 27, 58, 0.8);
+  z-index: 1;
 }
 
+/* 3. THE CONTAINER: Holds everything in the middle */
 .hero-content {
-  z-index: 2; /* Place content above the overlay */
-  max-width: 800px;
+  position: relative;
+  z-index: 2;
   width: 100%;
-  display: flex;
-  flex-direction: column; /* Center vertically and stack elements */
-  align-items: center; /* Center horizontally */
-}
-
-/* --- Redesigned Text and Hierarchy --- */
-.hero-text-minimal {
+  max-width: 1200px;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center horizontally */
-  color: #ffffff; /* Primary text color is white for readability */
+  align-items: center;
 }
 
+/* 4. THE BRAND: The "Hero" of the hero section */
 .brand-name {
-  font-size: 5rem; /* Make the brand name huge and dominant */
+  font-size: clamp(4rem, 12vw, 10rem); /* Responsive: shrinks on small screens */
   font-weight: 700;
-  color: #f1c40f; /* Your signature yellow/gold */
-  margin-bottom: 1rem;
-  line-height: 1;
-  letter-spacing: -1px;
+  color: #ffffff;
+  line-height: 0.9;
+  letter-spacing: -4px;
+  margin: 0; /* Cleaned up huge margins */
+  text-transform: uppercase;
 }
 
+/* 5. THE PITCH: Short and straight */
 .main-pitch {
-  font-size: 1.5rem; /* Larger, clearer main description */
-  line-height: 1.4;
-  margin-bottom: 3rem; /* Good space before the button */
-  max-width: 600px; /* Limit line length for readability */
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  color: #ffffff;
+  max-width: 700px;
+  margin: 1.5rem 0 3rem; /* Space: Top (1.5), Sides (0), Bottom (3) */
 }
 
-/* Highlight specific value words with your gold color */
 .highlight {
   color: #f1c40f;
   font-weight: 600;
 }
 
-/* --- A Strong, Minimal Call-to-Action Button --- */
+/* 6. THE ACTION: Clean, clickable button */
 .booking-cta-btn {
-  background: #f1c40f; /* Fill with gold */
-  color: #0b1b3a; /* Dark text inside */
+  background: #f1c40f;
+  color: #0b1b3a;
   border: none;
-  padding: 1.25rem 3rem; /* Significant padding, makes it a clear target */
-  border-radius: 50px; /* Pill-shaped */
-  font-size: 1.25rem;
-  font-weight: bold;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(241, 196, 15, 0.3); /* Subtle, matching glow */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .booking-cta-btn:hover {
-  transform: translateY(-2px); /* Subtle hover animation */
-  box-shadow: 0 8px 25px rgba(241, 196, 15, 0.5); /* Stronger glow on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(241, 196, 15, 0.3);
 }
 
-/* --- Status Badge Styling is kept the same, just adjust spacing --- */
+/* 7. THE BADGE: Trust signal */
 .status-badge {
-  /* ... status badge styles from before ... */
   display: inline-flex;
   align-items: center;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.75rem;
   font-weight: 700;
-  margin-bottom: 3rem; /* Increased space after badge before main text */
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 3; /* Ensure it stays visible */
-}
-/* ... rest of your status badge color and keyframes styles ... */
-
-.status-badge.open {
-  background: rgba(46, 204, 113, 0.2);
-  color: #2ecc71;
+  margin-bottom: 2rem;
+  background: rgba(0, 0, 0, 0.3);
 }
 
-.status-badge.closed {
-  background: rgba(231, 76, 60, 0.2);
-  color: #e74c3c;
-}
-
-.dot {
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  margin-right: 8px;
-  display: inline-block;
-}
-
-.open .dot {
-  background-color: #2ecc71;
-  box-shadow: 0 0 8px #2ecc71;
-  animation: pulse 2s infinite;
-}
-
-.closed .dot {
-  background-color: #e74c3c;
-}
+/* Status Colors & Pulse (Logic remains yours) */
+.status-badge.open { color: #2ecc71; }
+.status-badge.closed { color: #e74c3c; }
+.dot { height: 8px; width: 8px; border-radius: 50%; margin-right: 8px; }
+.open .dot { background-color: #2ecc71; box-shadow: 0 0 8px #2ecc71; animation: pulse 2s infinite; }
+.closed .dot { background-color: #e74c3c; }
 
 @keyframes pulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+  0% { transform: scale(0.95); opacity: 1; }
+  70% { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
 }
-  
-  /* Floating logo animation */
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-  }
-  

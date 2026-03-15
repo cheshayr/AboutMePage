@@ -25,9 +25,6 @@ function App() {
         {/* The "Hook" - First thing they see */}
         <Hero />
 
-        {/* The "Value" - Why they should trust you */}
-        <WhyChooseUs />
-
         {/* The "Story" - Who you are */}
         <About />
 
@@ -36,6 +33,9 @@ function App() {
 
         {/* The "Mobile Connection" - Your app */}
         <Promo />
+        
+        {/* The "Value" - Why they should trust you */}
+        <WhyChooseUs />
 
         {/* The "Conversion" - How they find you */}
         <Contact />

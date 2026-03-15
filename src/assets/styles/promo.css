@@ -1,5 +1,5 @@
 .promo {
-  background: linear-gradient(135deg, #0b1b3a, #1e3c72); /* dark gradient */
+  background: #0b1b3a; /* dark gradient */
   color: white;
   padding: 4rem 2rem;   /* reduced padding to tighten spacing */
   text-align: center;

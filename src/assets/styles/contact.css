@@ -1,26 +1,130 @@
-/* src/assets/styles/contact.css */
 .contact {
-  padding: 5rem 2rem;
-  background-color: #ffffff;
+  padding: 8rem 2rem;
+  background-color: #ffffff; /* Very light grey for a clean break */
   color: #0b1b3a;
-  text-align: center;
-     min-height: 100vh; 
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .contact-container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Side by side */
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Text Side */
+.contact-info {
+  text-align: left;
+}
+
+.sub-heading {
+  color: #f1c40f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.contact-info h2 {
+  font-size: 3rem;
+  margin: 1rem 0 1.5rem;
+  font-weight: 800;
+  color: #0b1b3a;
+}
+
+.contact-description {
+  margin-bottom: 3rem;
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
+/* Detail Items */
+.contact-details {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-bottom: 3rem;
 }
 
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.contact-icon {
+  color: #f1c40f;
+  font-size: 1.5rem;
+  margin-top: 5px;
+}
+
+.detail-item h4 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-item p, .detail-item a {
+  color: #0b1b3a;
+  opacity: 0.6;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* Button */
 .booking-btn {
+  background: #0b1b3a; /* Dark button for high contrast */
+  color: #f1c40f;
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.booking-btn:hover {
   background: #f1c40f;
   color: #0b1b3a;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Map Styling */
+.map-wrapper {
+  height: 500px;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 968px) {
+  .contact-container {
+    grid-template-columns: 1fr; /* Stack on mobile */
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .contact-info {
+    text-align: center;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .map-wrapper {
+    height: 350px;
+  }
 }

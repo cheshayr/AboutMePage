@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "../assets/styles/hero.css";
-// import tierodLogo from "../tierod-logo.png"; // We'll move the logo focus for a minimal design
-import tierodShop from "../tierod-shop.png"; // We'll use the background image
+import tierodShop from "../tierod-shop.png"; 
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // ... checkStatus logic remains the same ...
     const checkStatus = () => {
+      // Get current time specifically for Manila/Philippine Standard Time
       const manilaTime = new Intl.DateTimeFormat("en-US", {
         timeZone: "Asia/Manila",
         hour: "numeric",
@@ -17,14 +16,19 @@ const Hero = () => {
         weekday: "long",
       }).formatToParts(new Date());
 
-      const hour = parseInt(manilaTime.find(p => p.type === 'hour').value);
-      const day = manilaTime.find(p => p.type === 'weekday').value;
+      const hourPart = manilaTime.find(p => p.type === 'hour');
+      const dayPart = manilaTime.find(p => p.type === 'weekday');
 
-      // Logic: Mon-Sat, 8 AM (8) to 5 PM (17)
-      const workingDay = day !== "Sunday";
-      const workingHour = hour >= 8 && hour < 17;
+      if (hourPart && dayPart) {
+        const hour = parseInt(hourPart.value);
+        const day = dayPart.value;
 
-      setIsOpen(workingDay && workingHour);
+        // Shop Hours: Mon-Sat, 8:00 AM to 5:00 PM (17:00)
+        const isWorkingDay = day !== "Sunday";
+        const isWorkingHour = hour >= 8 && hour < 17;
+
+        setIsOpen(isWorkingDay && isWorkingHour);
+      }
     };
 
     checkStatus();
@@ -35,22 +39,31 @@ const Hero = () => {
   return (
     <motion.section 
       className="hero" 
+      id="hero" // 👈 Added ID so the Navbar Logo link works
       style={{ backgroundImage: `url(${tierodShop})` }}
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }}
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      transition={{ duration: 1.5 }}
     >
       <div className="hero-content">
-        {/* Status Badge - We keep this important trust signal */}
-        <motion.div 
+        
+        {/* Status Badge */}
+        {/* <motion.div 
           className={`status-badge ${isOpen ? "open" : "closed"}`}
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
         >
           <span className="dot"></span> {isOpen ? "OPEN NOW" : "CLOSED NOW"}
-        </motion.div>
+        </motion.div> */}
 
-        {/* --- MODIFIED CORE TEXT AREA --- */}
-        <motion.div className="hero-text-minimal" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.5 }}>
+        {/* Minimalist Text Area */}
+        <motion.div 
+          className="hero-text-minimal" 
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 1.2, delay: 0.5 }}
+        >
           <h1 className="brand-name">AutoMate</h1>
           
           <p className="main-pitch">
@@ -58,12 +71,16 @@ const Hero = () => {
             Superior service, made affordable.
           </p>
 
-          {/* New, clearer Primary Call-to-Action */}
-          <button className="booking-cta-btn">
+          <motion.button 
+            className="booking-cta-btn"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => window.location.href = '#contact'}
+          >
             Get an Estimate
-          </button>
+          </motion.button>
         </motion.div>
-        {/* --- MODIFIED CORE TEXT AREA --- */}
+
       </div>
     </motion.section>
   );

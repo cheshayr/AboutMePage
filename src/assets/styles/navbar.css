@@ -6,7 +6,7 @@
   backdrop-filter: blur(8px);
   color: white;
   display: flex;
-  
+  text-decoration: none;
   /* ⚡️ This pushes logo left and nav right ⚡️ */
   justify-content: space-between; 
   
@@ -19,9 +19,12 @@
 
 /* ⚡️ Logo Sizing ⚡️ */
 .navbar-logo img {
-  height: 50px; /* Adjust this height to fit your preference */
+  height: 65px; /* Adjust this height to fit your preference */
   width: auto;  /* Keeps the logo from stretching */
   display: block;
+}
+.navbar-logo:hover img {
+  transform: scale(1.05);
 }
 
 .navbar nav {

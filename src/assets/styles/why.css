@@ -1,30 +1,107 @@
 .why {
-    background: #f1f4f9;
-    text-align: center;
-    min-height: 100vh;
+  background: #ffffff;
+  padding: 10rem 2rem;
+  color: #0b1b3a;
+  display: flex;
+  justify-content: center; /* Centers the inner container */
+}
+
+.why-inner {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.why-header {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.why-tag {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #f1c40f;
+  margin-bottom: 1rem;
+}
+
+.why-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+/* --- THE CENTERING ENGINE --- */
+.why-center-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.why-grid-standard {
+  display: grid;
+  /* Balanced 2x2 grid */
+  grid-template-columns: repeat(2, minmax(300px, 450px));
+  gap: 6rem 4rem; 
+  justify-content: center; /* Centers columns within the grid */
+}
+
+.why-node {
+  position: relative;
+  display: flex;
+  justify-content: center; /* Centers the content box within its grid cell */
+}
+
+.why-node-content {
+  position: relative;
+  text-align: center; /* Centers all text/icons */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Keeps everything in a vertical line */
+  max-width: 320px;
+}
+
+/* Ghost Number - Positioned behind the Icon */
+.why-node-num {
+  position: absolute;
+  top: -30px;
+  font-size: 8rem;
+  font-weight: 900;
+  color: #f8f9fa; /* Very subtle */
+  z-index: 1;
+}
+
+.why-node-icon {
+  position: relative;
+  z-index: 2;
+  font-size: 2rem;
+  color: #f1c40f;
+  margin-bottom: 1.5rem;
+}
+
+.why-node h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  z-index: 2;
+}
+
+.divider-line {
+  width: 40px;
+  height: 2px;
+  background: #f1c40f;
+  margin: 0 auto 1.5rem; /* Centered divider */
+}
+
+.why-node p {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+/* Mobile: Single centered column */
+@media (max-width: 768px) {
+  .why-grid-standard {
+    grid-template-columns: 1fr;
+    gap: 5rem;
   }
-  
-  .why-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  
-  .why .card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    font-weight: 500;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .why .icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #f1c40f;
-  }
-  
+}
