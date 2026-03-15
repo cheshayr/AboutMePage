@@ -106,7 +106,7 @@
   background: #ffffff; /* Turns white on hover */
   color: #0b1b3a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(241, 196, 15, 0.4);
+  
 }
 
 /* Subtle Active state when clicked */

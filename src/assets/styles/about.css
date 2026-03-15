@@ -8,11 +8,13 @@
   padding: 10rem 2rem;
   display: flex;
   justify-content: center;
+  
 }
 
 .container-main {
   max-width: 1200px;
   width: 100%;
+  
 }
 
 .container-center {
@@ -37,6 +39,7 @@
   grid-template-columns: 0.9fr 1.1fr;
   gap: 8rem;
   align-items: center;
+  
 }
 
 .beat-grid-b {
@@ -102,6 +105,33 @@
   letter-spacing: 1px;
   border: 1px solid #0b1b3a;
   padding: 8px 16px;
+}
+/* --- UPDATED PILL LIST FOR "WHY THE APP" --- */
+.pill-list {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 2.5rem;
+}
+
+.pill-list span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1.5px solid #0b1b3a;
+  padding: 10px 20px;
+  border-radius: 50px; /* Rounded pills look more "app-like" */
+  transition: all 0.3s ease;
+}
+
+.pill-list span:hover {
+  background: #0b1b3a;
+  color: #ffffff;
+}
+
+/* Ensure images in grid-b are handled correctly */
+.beat-grid-b .beat-visual img {
+  border-radius: 12px; /* Slightly rounder for the "modern" section */
 }
 
 /* --- MOBILE --- */

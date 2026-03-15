@@ -185,7 +185,7 @@
   color: #1a1a1a; /* Clean Black/Grey instead of blue */
   width: 100%;
   max-width: 1100px;
-  border-radius: 4px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
