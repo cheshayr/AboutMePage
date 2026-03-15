@@ -1,3 +1,6 @@
+/* Import Poppins at the very top of your CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
 .navbar {
   position: fixed;
   top: 0;
@@ -7,22 +10,23 @@
   color: white;
   display: flex;
   text-decoration: none;
-  /* ⚡️ This pushes logo left and nav right ⚡️ */
   justify-content: space-between; 
-  
   align-items: center;
-  /* Added left/right padding so logo and nav don't touch the screen edges */
   padding: 0.5rem 4rem; 
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  
+  /* Apply Poppins to the whole navbar */
+  font-family: 'Poppins', sans-serif;
 }
 
-/* ⚡️ Logo Sizing ⚡️ */
 .navbar-logo img {
-  height: 65px; /* Adjust this height to fit your preference */
-  width: auto;  /* Keeps the logo from stretching */
+  height: 65px; 
+  width: auto;  
   display: block;
+  transition: transform 0.3s ease;
 }
+
 .navbar-logo:hover img {
   transform: scale(1.05);
 }
@@ -36,30 +40,86 @@
   position: relative;
   color: #ffffff;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
+  
+  /* ⚡️ Updated Font Weight & Family ⚡️ */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; /* Use 600 for semi-bold or 700 for bold */
+  font-size: 0.95rem; /* Poppins runs a bit large, 0.95rem keeps it clean */
+  
+  letter-spacing: 0.5px; /* Adds a bit of premium feel */
   transition: color 0.3s ease;
 }
 
-/* ... rest of your hover effects stay the same ... */
-  
-  .navbar nav a:hover {
-    color: #fff;
+.navbar nav a:hover {
+  color: #f1c40f; /* Changed to gold on hover to match your brand */
+}
+
+/* Underline hover effect */
+.navbar nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #f1c40f;
+  transition: width 0.3s ease;
+}
+
+.navbar nav a:hover::after {
+  width: 100%;
+}
+.navbar nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center; /* Ensures the button and text links align vertically */
+}
+
+/* Base styles for standard links */
+.navbar nav a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; 
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+/* ⚡️ THE DOWNLOAD BUTTON (CTA) ⚡️ */
+.navbar nav a.nav-cta {
+  background: #f1c40f; /* Your brand gold */
+  color: #0b1b3a;    /* Dark navy text for readability */
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px; /* Pill shape */
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Remove the underline effect for the button only */
+.navbar nav a.nav-cta::after {
+  display: none;
+}
+
+/* Hover state for the button */
+.navbar nav a.nav-cta:hover {
+  background: #ffffff; /* Turns white on hover */
+  color: #0b1b3a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(241, 196, 15, 0.4);
+}
+
+/* Subtle Active state when clicked */
+.navbar nav a.nav-cta:active {
+  transform: translateY(0);
+}
+
+/* Responsive tweak for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1.5rem;
   }
-  
-  /* underline hover effect */
-  .navbar nav a::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #f1c40f;
-    transition: width 0.3s ease;
+  .navbar nav {
+    gap: 1rem;
   }
-  
-  .navbar nav a:hover::after {
-    width: 100%;
-  }
-  
+}

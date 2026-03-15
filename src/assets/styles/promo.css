@@ -1,61 +1,221 @@
-.promo {
-  background: #0b1b3a; /* dark gradient */
-  color: white;
-  padding: 4rem 2rem;   /* reduced padding to tighten spacing */
-  text-align: center;
-  margin: 0;   
-  min-height: 100vh;          /* ensure no outside spacing */
+.promo-section {
+  background: #0b1b3a;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
 }
 
-.promo-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.promo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.promo-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 3rem;
+  gap: 80px;
 }
 
-.promo-img img {
-  max-width: 320px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-  transform: rotate(-2deg);
-  transition: transform 0.4s ease;
-}
-
-.promo-img img:hover {
-  transform: rotate(0deg) scale(1.05);
-}
-
-.promo-text {
-  max-width: 500px;
-  text-align: left;
-}
-
-.promo-text h2 {
-  font-size: 2.5rem;
-  margin: 0 0 1rem 0;   /* reset top margin, keep bottom */
-  color: #f1c40f;       /* gold accent */
-}
-
-.promo-text p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 0 0 2rem 0;   /* reset top margin */
-}
-
-.download-btn {
-  padding: 0.9rem 1.8rem;
-  border: none;
-  border-radius: 10px;
-  background: #f1c40f;
-  color: #0b1b3a;
+/* Text Styling */
+.promo-tag {
+  color: #f1c40f;
+  font-size: 0.85rem;
   font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
 }
 
-.download-btn:hover {
-  background: #d4ac0d;
-  transform: translateY(-2px);
+.promo-main-title {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.promo-main-title span {
+  color: #f1c40f;
+}
+
+.promo-description {
+  color: #a0aec0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+}
+
+/* Button Alignment */
+.promo-button-group {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.playstore-btn {
+  background: #000;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.playstore-btn:hover {
+  background: #111;
+  transform: translateY(-3px);
+}
+
+.btn-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.btn-label span {
+  font-size: 0.65rem;
+  font-weight: 400;
+}
+
+.btn-label strong {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.demo-link {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  text-decoration-color: #f1c40f;
+}
+
+/* Visual Side Alignment */
+.promo-visual-side {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mockup-container {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.mockup-shadow {
+  position: absolute;
+  bottom: -20px;
+  left: 10%;
+  width: 80%;
+  height: 40px;
+  background: rgba(0,0,0,0.5);
+  filter: blur(20px);
+  z-index: 1;
+}
+
+/* Background Effect */
+.promo-blur-orb {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(241, 196, 15, 0.08) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+}
+.promo-section {
+  background: #0b1b3a;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  
+  /* --- ADD THESE 3 LINES TO CENTER EVERYTHING --- */
+  display: flex;
+  align-items: center; /* Vertical Center */
+  justify-content: center; /* Horizontal Center */
+}
+
+.promo-container {
+  max-width: 1200px;
+  width: 100%; /* Ensure container takes full width of the flex parent */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.promo-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 80px;
+  /* Ensure the grid is centered if the container is wider than the grid */
+  justify-content: center; 
+}
+
+/* --- UPDATED TEXT ALIGNMENT --- */
+.promo-text-side {
+  /* This ensures text stays left-aligned relative to itself 
+     but centered within the overall section layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.promo-description {
+  color: #a0aec0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+}
+
+/* --- VISUAL SIDE FIX --- */
+.promo-visual-side {
+  display: flex;
+  justify-content: center; /* Changed from flex-end to center for better balance */
+}
+
+/* ... keep the rest of your styling ... */
+
+@media (max-width: 968px) {
+  .promo-grid-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 50px;
+  }
+  .promo-text-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .promo-visual-side {
+    justify-content: center;
+  }
+  .promo-button-group {
+    flex-direction: column;
+  }
 }

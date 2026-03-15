@@ -10,6 +10,8 @@ import Services from "./components/Services";
 import Promo from "./components/Promo";
 import Contact from "./components/Contact"; // New
 import Footer from "./components/Footer";
+import FAQs from "./components/FAQss";
+
 
 // ✅ 2. Import the Global CSS
 import "./assets/styles/global.css";
@@ -35,10 +37,15 @@ function App() {
         <Promo />
         
         {/* The "Value" - Why they should trust you */}
-        <WhyChooseUs />
+        {/* <WhyChooseUs /> */}
 
         {/* The "Conversion" - How they find you */}
         <Contact />
+
+        <FAQs />
+
+        
+
       </main>
 
       {/* 🛠️ Footer */}

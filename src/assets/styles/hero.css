@@ -58,6 +58,37 @@
   color: #f1c40f;
   font-weight: 600;
 }
+.highlight2 {
+  /* A deeper, premium blue gradient that fits your navy background */
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* Size & Weight: Smaller and more refined */
+ 
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  
+  /* Modern touch: A very soft glow to make it pop against the dark blue */
+  filter: drop-shadow(0px 2px 4px rgba(59, 130, 246, 0.3));
+  
+  display: inline-block;
+  position: relative;
+}
+
+/* Optional: Add a tiny underline to make it look like a "tech" highlight */
+.highlight2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 2px;
+}
 
 /* 6. THE ACTION: Clean, clickable button */
 .booking-cta-btn {
@@ -70,12 +101,15 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+
+  
 }
 
 .booking-cta-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(241, 196, 15, 0.3);
 }
+
 
 /* 7. THE BADGE: Trust signal */
 .status-badge {

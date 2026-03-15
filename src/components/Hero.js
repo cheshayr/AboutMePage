@@ -67,8 +67,8 @@ const Hero = () => {
           <h1 className="brand-name">AutoMate</h1>
           
           <p className="main-pitch">
-            Your trusted Quezon City choice for <span className="highlight">expert car repairs</span> and quality parts. 
-            Superior service, made affordable.
+            Experience the future of car maintenance with <span className="highlight">AutoMate | Tierodman Auto Center</span> seamless tracking and booking system
+            
           </p>
 
           <motion.button 

@@ -21,7 +21,7 @@ const Contact = () => {
               <FaMapMarkerAlt className="contact-icon" />
               <div>
                 <h4>Location</h4>
-                <p>123 Tierododman St, Quezon City, Metro Manila</p>
+                <p>246 P. Ocampo Ext., Cor. Sampaloc St,. San Antonio, Makati City</p>
               </div>
             </div>
 
@@ -29,7 +29,7 @@ const Contact = () => {
               <FaPhoneAlt className="contact-icon" />
               <div>
                 <h4>Phone</h4>
-                <p><a href="tel:+639123456789">0912 345 6789</a></p>
+                <p><a href="tel:+639123456789">(02) 899-2773</a></p>
               </div>
             </div>
 
