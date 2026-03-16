@@ -31,7 +31,7 @@ const FAQs= () => {
         {/* FAQ Header */}
         <div className="faq-header">
           <span className="label-gold">Support</span>
-          <h2>Common Questions</h2>
+          <h2>Frequently Asked Questions</h2>
         </div>
 
         {/* Accordion List */}

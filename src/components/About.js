@@ -13,7 +13,7 @@ const About = () => {
         <div className="container-main">
           <div className="beat-grid-a">
             <div className="beat-content">
-              <span className="label-gold">Our Origin</span>
+              <span className="label-gold">Tierodman Auto Center | Powered by GOOD YEAR</span>
               <h2>Built from the <br/> ground up.</h2>
               <p>
                 Tierodman Auto Center, <strong>established in 1986,</strong> is a long-standing and reputable auto repair shop in Makati City. Over the decades, it has become one of the most trusted automotive centers in Metro Manila.

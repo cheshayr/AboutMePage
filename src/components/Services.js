@@ -130,7 +130,7 @@ const Services = () => {
       <div className="services-wrapper">
         <header className="services-header">
           <span className="label-gold">Technical Expertise</span>
-          <h2 className="services-title">Specialized Care.</h2>
+          <h2 className="services-title">Services Offered</h2>
         </header>
 
         <div className="main-display-area">
