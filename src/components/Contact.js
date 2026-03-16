@@ -21,7 +21,7 @@ const Contact = () => {
               <FaMapMarkerAlt className="contact-icon" />
               <div>
                 <h4>Location</h4>
-                <p>246 P. Ocampo Ext., Cor. Sampaloc St,. San Antonio, Makati City</p>
+                <p>2246 Pablo Ocampo Ext. cor. Sampaloc St. San Antonio Village, Makati City</p>
               </div>
             </div>
 
