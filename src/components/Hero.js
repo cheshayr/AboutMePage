@@ -4,7 +4,7 @@ import "../assets/styles/hero.css";
 import tierodShop from "../tierod-shop.png"; 
 
 const Hero = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  //const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const checkStatus = () => {

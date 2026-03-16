@@ -8,7 +8,7 @@ import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
 // ✅ 1. Import your organized components
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import WhyChooseUs from "./components/WhyChooseUs"; 
+//import WhyChooseUs from "./components/WhyChooseUs"; 
 import About from "./components/About";
 import Services from "./components/Services";
 import Promo from "./components/Promo";
